@@ -85,11 +85,11 @@ This JavaScript file handles user interactions on the frontend and sends the sch
 
 3. **Run the Flask Application**:
   - Run these commands in terminal:
-  ``pip install flask``
+   ``pip install flask``
    ```bash
    python server.py
    ```
- - Follow the link given in the terminal (Ctrl + link). 
+  - Follow the link given in the terminal (Ctrl + link). 
 
 5. **Access the Frontend Interface**:
    Open a web browser and navigate to `http://127.0.0.1:5000/`.
