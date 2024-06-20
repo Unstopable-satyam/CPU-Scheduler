@@ -65,6 +65,7 @@ This JavaScript file handles user interactions on the frontend and sends the sch
 - **Event Listener for Adding Processes**: Dynamically adds input fields for new processes.
 - **Form Submission Handling**: Collects process data, sends it to the backend, and displays the results.
 
+
 ## Setup and Execution
 
 ### Prerequisites
@@ -95,9 +96,11 @@ This JavaScript file handles user interactions on the frontend and sends the sch
    Open a web browser and navigate to `http://127.0.0.1:5000/`.
 
 6. **Input Processes**:
-   - Enter the PID, burst time, and arrival time for each process.
+   - Enter the PID, burst time, and arrival time for each process(note that burst time must be positive).
    - Click "Add Process" to add more processes.
    - Click "Schedule" to perform scheduling and view the results.
+7. **If all these is not working in your setup you can create an `input.txt` file and run the `main.cpp` and see the `output.txt`.**
+
 
 ## Scheduling Algorithms
 
