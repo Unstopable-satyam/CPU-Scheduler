@@ -12,7 +12,7 @@ This project demonstrates the implementation of various CPU scheduling algorithm
 The project comprises four main files:
 
 1. `main.cpp` - Implements the scheduling algorithms and predicts the best algorithm based on task characteristics.
-2. `app.py` - Flask application that handles scheduling requests, executes the C++ program, and generates Gantt charts.
+2. `server.py` - Flask application that handles scheduling requests, executes the C++ program, and generates Gantt charts.
 3. `index.html` - Frontend interface for inputting processes and displaying the scheduling results.
 4. `script.js` - JavaScript file that handles frontend interactions and sends requests to the Flask backend.
 
