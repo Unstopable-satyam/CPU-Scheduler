@@ -302,10 +302,10 @@ Round Robin (RR) scheduling assigns a fixed time unit (quantum) per process. If 
 
 #### Code Explanation
 ```cpp
-void roundRobin(std::vector<Task> tasks, int quantum, std::ofstream& outputFile) {
-    std::vector<Execution> executions;
+void roundRobin(vector<Task> tasks, int quantum, ofstream& outputFile) {
+    vector<Execution> executions;
     int currentTime = 0;
-    std::queue<int> readyQueue;
+    queue<int> readyQueue;
     int completed = 0;
 
     for (auto& t : tasks) {
@@ -320,51 +320,42 @@ void roundRobin(std::vector<Task> tasks, int quantum, std::ofstream& outputFile)
 
     while (completed != tasks.size()) {
         for (int i = 0; i < n; i++) {
-            if (
-
-tasks[i].arrival <= currentTime) {
+            if (arrival[i] <= currentTime && arrival[i] != -1) {
                 readyQueue.push(i);
+                arrival[i] = -1;
             }
         }
-    let execute did whose remaining CPU involves the  cut option memory their
- 
-Certainly! Let's continue with the explanation and refinement of the Round Robin (RR) scheduling algorithm implementation from where it left off.
 
-### Round Robin (RR) Scheduling (continued)
-
-#### Code Explanation (continued)
-```cpp
-        // If the queue is not empty, execute processes in the queue
-        if (!readyQueue.empty()) {
-            int currentProcess = readyQueue.front();
-            readyQueue.pop();
-
-            // Execute process for the quantum or the remaining burst time, whichever is smaller
-            int execute = std::min(quantum, tasks[currentProcess].remaining);
-            tasks[currentProcess].remaining -= execute;
-
-            // Record execution in the Gantt chart
-            executions.push_back(Execution(tasks[currentProcess].id, currentTime, currentTime + execute));
-
-            // Update current time
-            currentTime += execute;
-
-            // Check if the process is completed
-            if (tasks[currentProcess].remaining == 0) {
-                completed++;
-                tasks[currentProcess].wait = currentTime - tasks[currentProcess].arrival - tasks[currentProcess].burst;
-                tasks[currentProcess].turnaround = tasks[currentProcess].wait + tasks[currentProcess].burst;
-            } else {
-                // If not completed, push it back into the ready queue
-                readyQueue.push(currentProcess);
-            }
-        } else {
-            // If the queue is empty, move time forward
+        if (readyQueue.empty()) {
             currentTime++;
+            continue;
+        }
+
+        int current = readyQueue.front();
+        readyQueue.pop();
+
+        int timeSlice = min(quantum, tasks[current].remaining);
+        executions.push_back(Execution(tasks[current].id, currentTime, currentTime + timeSlice));
+        tasks[current].remaining -= timeSlice;
+        currentTime += timeSlice;
+
+        for (int i = 0; i < n; i++) {
+            if (arrival[i] <= currentTime && arrival[i] != -1) {
+                readyQueue.push(i);
+                arrival[i] = -1;
+            }
+        }
+
+        if (tasks[current].remaining > 0) {
+            readyQueue.push(current);
+        } else {
+            completed++;
+            tasks[current].wait = currentTime - tasks[current].arrival - tasks[current].burst;
         }
     }
 
-    outputFile << "Round Robin Scheduling (Quantum = " << quantum << "):" << std::endl;
+    outputFile << "Round Robin Scheduling (Dynamic Quantum):" << endl;
+    outputFile << "Estimated Quantum Time: " << quantum << endl;
     printAverageTimes(tasks, outputFile);
     printGanttChart(executions, outputFile);
 }
