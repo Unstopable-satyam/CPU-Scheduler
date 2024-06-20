@@ -69,8 +69,8 @@ This JavaScript file handles user interactions on the frontend and sends the sch
 
 ### Prerequisites
 
-- Python 3.x
-- Flask
+- Python setup in VS CODE
+- Flask should be installed
 - g++ compiler
 - Matplotlib (for generating Gantt charts)
 
@@ -81,32 +81,27 @@ This JavaScript file handles user interactions on the frontend and sends the sch
    g++ main.cpp -o scheduling
    ```
 
-2. **Run the Flask Application**:
-   ```bash
-   python app.py
-   ```
+2. **Setup Python development environment in your code editor(say VS code)**
 
-3. **Access the Frontend Interface**:
+3. **Run the Flask Application**:
+  - Run these commands in terminal:
+  ``pip install flask``
+   ```bash
+   python server.py
+   ```
+ - Follow the link given in the terminal (Ctrl + link). 
+
+5. **Access the Frontend Interface**:
    Open a web browser and navigate to `http://127.0.0.1:5000/`.
 
-4. **Input Processes**:
+6. **Input Processes**:
    - Enter the PID, burst time, and arrival time for each process.
    - Click "Add Process" to add more processes.
    - Click "Schedule" to perform scheduling and view the results.
 
-## Conclusion
+## Scheduling Algorithms
 
-This project provides a comprehensive tool for demonstrating and visualizing various CPU scheduling algorithms. By leveraging C++ for algorithm implementation and Flask for web interaction, it offers an interactive learning experience for understanding scheduling techniques.
-
-
-
-
-
-
-
-
-
-Certainly! Let's delve into each scheduling algorithm implemented in the `main.cpp` file, along with their theoretical background and code implementation details.
+Let's delve into each scheduling algorithm implemented in the `main.cpp` file, along with their theoretical background and code implementation details.
 
 ### 1. First-Come, First-Served (FCFS) Scheduling
 
