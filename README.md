@@ -104,6 +104,30 @@ This JavaScript file handles user interactions on the frontend and sends the sch
 
 ## Scheduling Algorithms
 
+###The predictBestAlgorithm function aims to predict the most suitable scheduling algorithm for a given set of tasks based on their characteristics. Here’s a detailed breakdown of how this function works:
+Parameters:
+tasks: A vector of Task objects, where each Task has attributes such as arrival (arrival time) and burst (burst time).
+Steps and Logic:
+Calculate Total and Average Burst Time:
+
+The function starts by calculating the total burst time of all tasks.
+It then computes the average burst time by dividing the total burst time by the number of tasks.
+Check if All Burst Times are the Same:
+
+The function checks if all tasks have the same burst time.
+If all burst times are identical, it returns "FCFS" (First-Come, First-Served) since FCFS is straightforward and effective when all tasks have the same execution time.
+Sort Tasks by Arrival Time:
+
+The function sorts the tasks based on their arrival times using the comparator function compareByArrival.
+Check for Overlapping Arrival Times:
+
+The function then checks for overlapping arrival times by iterating through the sorted tasks.
+It verifies if any task's burst time overlaps with the next task's arrival time.
+If overlapping is found, it returns "SRTF" (Shortest Remaining Time First) as it handles overlapping tasks efficiently by preempting the currently running task if a new task arrives with a shorter burst time.
+Default to SJF:
+
+If there are no overlapping arrival times, the function defaults to returning "SJF" (Shortest Job First), as it is effective in minimizing average waiting time when tasks do not overlap.
+
 Let's delve into each scheduling algorithm implemented in the `main.cpp` file, along with their theoretical background and code implementation details.
 
 ### 1. First-Come, First-Served (FCFS) Scheduling
