@@ -86,7 +86,7 @@ This JavaScript file handles user interactions on the frontend and sends the sch
 3. **Run the Flask Application**:
   - Run these commands in terminal:
    ```bash
-   pip install fask
+   pip install flask
    python server.py
    ```
   - Follow the link given in the terminal (Ctrl + link). 
