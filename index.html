@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduling Algorithms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .process {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Scheduling Algorithms</h1>
+        <form id="processForm">
+            <div id="processes">
+                <div class="process">
+                    <input type="number" name="pid" placeholder="PID" required>
+                    <input type="number" name="burst_time" placeholder="Burst Time" required>
+                    <input type="number" name="arrival_time" placeholder="Arrival Time" required>
+                </div>
+            </div>
+            <!-- Time Quantum: <input type="time_quantum" placeholder="2"> -->
+            <button type="button" id="addProcess">Add Process</button>
+            <button type="submit">Schedule</button>
+        </form>
+        <pre id="output"></pre>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
